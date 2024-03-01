@@ -6,7 +6,7 @@ class LastMigration
 {
     public function getFromFile(): ?string
     {
-        $migrationsPath = \Craft::getAlias('@root').'/migrations';
+        $migrationsPath = \Craft::getAlias('@contentMigrations');
         $iterator = new \DirectoryIterator($migrationsPath);
         $newestTime = 0;
         $newestFile = null;

@@ -65,7 +65,6 @@ class FeedMeMigrations extends Plugin
             $action = $request->getBodyParam('action');
 
             // Create migrations only on the last save action
-            // @todo add config option to disable automatic migrations
             if ($action === 'feed-me/feeds/save-and-review-feed' && $this->getSetting('auto-enabled') !== false) {
                 (new Migration)->create($feed->uid);
             }
