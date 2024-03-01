@@ -1,0 +1,49 @@
+{
+    "name": "boldminded/craft-feed-me-migrations",
+    "description": "Migrations for Feed Me configurations",
+    "type": "craft-plugin",
+    "license": "proprietary",
+    "support": {
+        "email": "support@boldminded.com",
+        "issues": "https://github.com/litzinger/feed-me-migrations.gif/issues?state=open",
+        "source": "https://github.com/litzinger/feed-me-migrations.gif",
+        "docs": "https://github.com/litzinger/feed-me-migrations.gif",
+        "rss": "https://github.com/litzinger/feed-me-migrations.gif/releases.atom"
+    },
+    "require": {
+        "php": ">=8.0.2",
+        "craftcms/cms": "^4.8.0"
+    },
+    "require-dev": {
+        "craftcms/ecs": "dev-main",
+        "craftcms/phpstan": "dev-main"
+    },
+    "autoload": {
+        "psr-4": {
+            "boldminded\\craftfeedmemigrations\\": "src/"
+        }
+    },
+    "extra": {
+        "handle": "feed-me-migrations",
+        "name": "Feed Me Migrations",
+        "developer": "BoldMinded, LLC",
+        "documentationUrl": "https://github.com/litzinger/feed-me-migrations.gif",
+        "class": "boldminded\\craftfeedmemigrations\\FeedMeMigrations"
+    },
+    "scripts": {
+        "check-cs": "ecs check --ansi",
+        "fix-cs": "ecs check --ansi --fix",
+        "phpstan": "phpstan --memory-limit=1G"
+    },
+    "config": {
+        "sort-packages": true,
+        "platform": {
+            "php": "8.0.2"
+        },
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true,
+            "craftcms/plugin-installer": true
+        }
+    }
+}
+
