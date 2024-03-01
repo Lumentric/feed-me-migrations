@@ -1,6 +1,7 @@
 {
     "name": "boldminded/craft-feed-me-migrations",
     "description": "Migrations for Feed Me configurations",
+    "version": "1.0.0",
     "type": "craft-plugin",
     "license": "proprietary",
     "support": {
