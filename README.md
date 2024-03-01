@@ -4,7 +4,7 @@ Migrations for Feed Me configurations
 
 ## Requirements
 
-This plugin requires Craft CMS 4.5.0 or later, and PHP 8.0.2 or later.
+This plugin requires Craft CMS 4.8.0 or later, and PHP 8.0.2 or later.
 
 ## Installation
 
