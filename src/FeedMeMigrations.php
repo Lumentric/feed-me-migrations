@@ -3,6 +3,7 @@
 namespace boldminded\craftfeedmemigrations;
 
 use boldminded\craftfeedmemigrations\services\Migration;
+use boldminded\craftfeedmemigrations\services\Settings;
 use Craft;
 use craft\base\Plugin;
 use craft\feedme\events\FeedEvent;
@@ -40,23 +41,6 @@ class FeedMeMigrations extends Plugin
         });
     }
 
-    public function getFileSettings(): array
-    {
-        // Don't need a Settings model. KISS.
-        return include Craft::getAlias('@config') . '/feed-me-migrations.php';
-    }
-
-    public function getSetting(string $name): mixed
-    {
-        $settings = $this->getFileSettings();
-
-        if (array_key_exists($name, $settings)) {
-            return $settings[$name];
-        }
-
-        return null;
-    }
-
     private function attachEventHandlers(): void
     {
         Event::on(Feeds::class, Feeds::EVENT_AFTER_SAVE_FEED, function(FeedEvent $event) {
@@ -65,7 +49,7 @@ class FeedMeMigrations extends Plugin
             $action = $request->getBodyParam('action');
 
             // Create migrations only on the last save action
-            if ($action === 'feed-me/feeds/save-and-review-feed' && $this->getSetting('auto-enabled') !== false) {
+            if ($action === 'feed-me/feeds/save-and-review-feed' && Settings::get('enable-auto') !== false) {
                 (new Migration)->create($feed->uid);
             }
         });
@@ -74,7 +58,7 @@ class FeedMeMigrations extends Plugin
             // Only add JS to the Feed Me settings page to enable manual migrations
             if (isset($context['feeds'])
                 && str_contains($context['docTitle'], 'Feed Me')
-                && $this->getSetting('manual-enabled') !== false
+                && Settings::get('enable-manual') !== false
             ) {
                 /** @var craft\web\View $view */
                 $view = $context['view'];

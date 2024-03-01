@@ -4,7 +4,7 @@ Migrations for Feed Me configurations
 
 ## Requirements
 
-This plugin requires Craft CMS 4.8.0 or later, and PHP 8.0.2 or later.
+This plugin requires Craft CMS 4.6.0 or later, Feed Me 5.4.0 or later, and PHP 8.0.2 or later.
 
 ## Installation
 
@@ -27,4 +27,19 @@ composer require boldminded/craft-feed-me-migrations
 
 # tell Craft to install the plugin
 ./craft plugin/install feed-me-migrations
+```
+
+## Config Options
+
+Configuration is managed entirely by an `config/feed-me-migrations.php` file. Options available:
+
+```php
+<?php
+
+return [
+    'debug' => false, // Adds a small snapshot of SectionTypes to the migration file
+    'enable' => true,
+    'enable-auto' => true,
+    'enable-manual' => true,
+];
 ```

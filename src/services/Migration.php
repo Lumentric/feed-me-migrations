@@ -2,6 +2,7 @@
 
 namespace boldminded\craftfeedmemigrations\services;
 
+use boldminded\craftfeedmemigrations\FeedMeMigrations;
 use Craft;
 use craft\feedme\Plugin;
 use craft\feedme\records\FeedRecord;
@@ -92,11 +93,9 @@ class Migration
         $backup = $feed['backup'] ?: '0';
         $uid = $feed['uid'] ?? null;
         $sectionsVarExport = json_encode((new SectionTypes)->getDictionary(), JSON_PRETTY_PRINT);
-        $debug = true; // @todo provide a config option to disable debugging
-
         $migrationContent = '';
 
-        if ($debug) {
+        if (Settings::get('debug') ?? false) {
             $migrationContent = '/**' . PHP_EOL . $sectionsVarExport . PHP_EOL . '*/' . PHP_EOL;
         }
 
