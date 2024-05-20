@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3eca4cbf316bea1a29a56991340c9b1d",
+    "content-hash": "501cbb1a88a6469696326dbe003a4727",
     "packages": [
         {
             "name": "cakephp/core",
@@ -1066,16 +1066,16 @@
         },
         {
             "name": "craftcms/feed-me",
-            "version": "5.4.0",
+            "version": "5.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/feed-me.git",
-                "reference": "21a9ed50b66531a872f41088c9d89b8ef66d7c5c"
+                "reference": "9933f0f21c9f0475e4ae2d9d6d90b671a4325640"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/feed-me/zipball/21a9ed50b66531a872f41088c9d89b8ef66d7c5c",
-                "reference": "21a9ed50b66531a872f41088c9d89b8ef66d7c5c",
+                "url": "https://api.github.com/repos/craftcms/feed-me/zipball/9933f0f21c9f0475e4ae2d9d6d90b671a4325640",
+                "reference": "9933f0f21c9f0475e4ae2d9d6d90b671a4325640",
                 "shasum": ""
             },
             "require": {
@@ -1093,6 +1093,7 @@
                 "craftcms/ecs": "dev-main",
                 "craftcms/phpstan": "dev-main"
             },
+            "default-branch": true,
             "type": "craft-plugin",
             "extra": {
                 "name": "Feed Me",
@@ -1132,7 +1133,7 @@
                 "rss": "https://github.com/craftcms/feed-me/commits/master.atom",
                 "source": "https://github.com/craftcms/feed-me"
             },
-            "time": "2024-02-26T01:39:07+00:00"
+            "time": "2024-03-16T00:12:24+00:00"
         },
         {
             "name": "craftcms/plugin-installer",
@@ -7617,6 +7618,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "craftcms/feed-me": 20,
         "craftcms/ecs": 20,
         "craftcms/phpstan": 20
     },
