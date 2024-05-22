@@ -11,7 +11,7 @@ $('.settings-pane-wrap').each(function () {
     const url = new URL($newBtn.attr('href'));
     const feedId = url.searchParams.get('feedId');
 
-    url.search = 'p=admin/actions/feed-me-migrations/migrations/create&feedId=' + feedId;
+    url.search = 'p=cp/actions/feed-me-migrations/migrations/create&feedId=' + feedId;
 
     $newBtn.attr('href', url.toString());
 
