@@ -2,7 +2,6 @@
 
 namespace boldminded\craftfeedmemigrations\services;
 
-use boldminded\craftfeedmemigrations\FeedMeMigrations;
 use Craft;
 use craft\feedme\Plugin;
 use craft\feedme\records\FeedRecord;
@@ -88,15 +87,25 @@ class Migration
         $elementGroup = $updatedMappings['elementGroup'] ?? $this->prepareJson($feed['elementGroup']);
         $fieldMapping = $updatedMappings['fieldMapping'] ?? $this->prepareJson($feed['fieldMapping']);
         $fieldUnique = $updatedMappings['fieldUnique'] ?? $this->prepareJson($feed['fieldUnique']);
-        $siteId = $feed['siteId'] ?: 'null';
         $singleton = $feed['singleton'] ?: '0';
         $backup = $feed['backup'] ?: '0';
+        $setEmptyValues = $feed['setEmptyValues'] ?: 0;
         $uid = $feed['uid'] ?? null;
         $sectionsVarExport = json_encode((new SectionTypes)->getDictionary(), JSON_PRETTY_PRINT);
         $migrationContent = '';
 
         if (Settings::get('debug') ?? false) {
             $migrationContent = '/**' . PHP_EOL . $sectionsVarExport . PHP_EOL . '*/' . PHP_EOL;
+        }
+
+        $siteId = "null";
+        if ($feed['siteId']) {
+            // Site ID is volatile and may be different for different deployments, so use handle to identify the site
+            $site = Craft::$app->getSites()->getSiteById($feed['siteId']);
+            $migrationContent .= <<<EOF
+        \$site = Craft::\$app->getSites()->getSiteByHandle('{$site->handle}');
+EOF;
+            $siteId = '\$site->id';
         }
 
         $migrationContent .= <<<EOF
@@ -108,7 +117,7 @@ class Migration
             'primaryElement' => '{$feed['primaryElement']}',
             'elementType' => '{$feed['elementType']}',
             'elementGroup' => '{$elementGroup}',
-            'siteId' => '{$siteId}',
+            'siteId' => {$siteId},
             'singleton' => '{$singleton}',
             'duplicateHandle' => '{$duplicateHandle}',
             'updateSearchIndexes' => '{$feed['updateSearchIndexes']}',
@@ -117,7 +126,7 @@ class Migration
             'fieldUnique' => '{$fieldUnique}',
             'passkey' => '{$feed['passkey']}',
             'backup' => '{$backup}',
-            'setEmptyValues' => '{$feed['setEmptyValues']}',
+            'setEmptyValues' => '{$setEmptyValues}',
             'uid' => '{$uid}',
         ])->execute();
 EOF;
