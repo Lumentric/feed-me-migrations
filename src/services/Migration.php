@@ -104,6 +104,7 @@ class Migration
             $site = Craft::$app->getSites()->getSiteById($feed['siteId']);
             $migrationContent .= <<<EOF
         \$site = Craft::\$app->getSites()->getSiteByHandle('{$site->handle}');
+        
 EOF;
             $siteId = '$site->id';
         }
