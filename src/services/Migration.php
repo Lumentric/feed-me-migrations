@@ -105,7 +105,7 @@ class Migration
             $migrationContent .= <<<EOF
         \$site = Craft::\$app->getSites()->getSiteByHandle('{$site->handle}');
 EOF;
-            $siteId = '\$site->id';
+            $siteId = '$site->id';
         }
 
         $migrationContent .= <<<EOF
