@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "501cbb1a88a6469696326dbe003a4727",
+    "content-hash": "811795d7affc43b267fec8edfad2fa37",
     "packages": [
         {
             "name": "cakephp/core",
@@ -1070,12 +1070,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/feed-me.git",
-                "reference": "9933f0f21c9f0475e4ae2d9d6d90b671a4325640"
+                "reference": "cac2d41f5fbb047a0b14cfedd20a92751ce90595"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/feed-me/zipball/9933f0f21c9f0475e4ae2d9d6d90b671a4325640",
-                "reference": "9933f0f21c9f0475e4ae2d9d6d90b671a4325640",
+                "url": "https://api.github.com/repos/craftcms/feed-me/zipball/cac2d41f5fbb047a0b14cfedd20a92751ce90595",
+                "reference": "cac2d41f5fbb047a0b14cfedd20a92751ce90595",
                 "shasum": ""
             },
             "require": {
@@ -1093,7 +1093,6 @@
                 "craftcms/ecs": "dev-main",
                 "craftcms/phpstan": "dev-main"
             },
-            "default-branch": true,
             "type": "craft-plugin",
             "extra": {
                 "name": "Feed Me",
@@ -1133,7 +1132,7 @@
                 "rss": "https://github.com/craftcms/feed-me/commits/master.atom",
                 "source": "https://github.com/craftcms/feed-me"
             },
-            "time": "2024-03-16T00:12:24+00:00"
+            "time": "2024-11-27T01:10:18+00:00"
         },
         {
             "name": "craftcms/plugin-installer",
@@ -7631,5 +7630,5 @@
     "platform-overrides": {
         "php": "8.0.2"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.2.0"
 }
