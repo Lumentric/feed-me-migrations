@@ -8,7 +8,7 @@ class SectionTypes
 {
     public function getDictionary(): array
     {
-        $allSections = Craft::$app->getSections()->getAllSections();
+        $allSections = Craft::$app->getEntries()->getAllSections();
 
         return array_combine(
             array_values(array_column($allSections, 'uid')),
