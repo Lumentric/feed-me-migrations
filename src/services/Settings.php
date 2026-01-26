@@ -2,14 +2,16 @@
 
 namespace boldminded\craftfeedmemigrations\services;
 
-use Craft;
-
 class Settings
 {
     public static function getFromFile(): array
     {
-        // Don't need a Settings model. KISS.
-        return include Craft::getAlias('@config') . '/feed-me-migrations.php';
+        return [
+            'debug' => false, // Adds a small snapshot of SectionTypes to the migration file
+            'enable' => true,
+            'enable-auto' => false,
+            'enable-manual' => true,
+        ];
     }
 
     public static function get(string $name): mixed
